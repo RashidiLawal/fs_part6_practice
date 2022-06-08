@@ -88,3 +88,4 @@ import {createStore} from 'redux'
 
   renderApp()
   store.subscribe(renderApp)
+
