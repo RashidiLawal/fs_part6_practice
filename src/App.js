@@ -1,36 +1,24 @@
-import NewNote from './NewNote'
-import Notes from './Notes'
-
+import { useEffect } from 'react';
+import NewNote from './components/NewNote'
+import Notes from './components/Notes'
+import VisibiltyFilter from './components/VisibiltyFilter'
+import {useDispatch} from 'react-redux'
+import { initializeNotes } from './reducers/noteRuducer';
 
 
 function App() {
 
-  /* const dispatch = useDispatch()
-  const notes = useSelector(state => state)
-
-
-  const toggleImportance = (id) => {
-    dispatch(toggleImportanceOf(id))
-  } */
-
-
-
-
+  const dispatch = useDispatch()
+  
+  useEffect(() => {
+    dispatch(initializeNotes())
+  },[dispatch])
 
  return (
     <div className="App">
       <NewNote/>
+      <VisibiltyFilter />
       <Notes/>
-      {/* <ul>
-                {notes.map((note, noteIndex) => 
-                    <li key={`note_${noteIndex}`}
-                    onClick={() => toggleImportance(note.id)}
-                    >
-                        {note.content} <strong>{note.important ? 'import' : ''}</strong>
-                    </li>
-                    )}
-      </ul> */}
-      
     </div>
 
   );

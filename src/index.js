@@ -1,17 +1,28 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
-
 import App from './App';
-
-import { createStore } from 'redux';
 import { Provider } from 'react-redux';
-// import App from './App';
-import noteReducer from './reducers/noteRuducer'
+import store from './store'
 
-const store = createStore(noteReducer)
 
-const root = ReactDOM.createRoot(document.getElementById('root'));
-root.render(
+
+/* import noteService from './services/notes'
+/* import { setNotes } from "./reducers/noteRuducer"; */
+/* import { setNotes } from './reducers/noteRuducer';  */
+
+
+
+
+
+
+/* noteService.getAll().then(notes => 
+  note => {
+    store.dispatch(setNotes(notes));
+  }
+) */
+
+
+ReactDOM.createRoot(document.getElementById('root')).render(
   <Provider store={store}>
     <App />
   </Provider>
